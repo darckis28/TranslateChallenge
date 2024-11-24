@@ -23,6 +23,7 @@ const languages = {
   Danish: "da",
   Finnish: "fi",
   Greek: "el",
+  Dectect: "mt",
 };
 const languageNames = [
   "French",
@@ -79,7 +80,9 @@ const HeaderSelection = ({ translate }) => {
           onChange={handelChange}
           name="language"
           className={`${
-            btnSelect === "Spanish" || btnSelect === "English"
+            btnSelect === "Dectect" ||
+            btnSelect === "Spanish" ||
+            btnSelect === "English"
               ? "bg-transparent text-textSelect"
               : "bg-textSelect text-white"
           } rounded-lg px-2  focus:bg-textSelect focus:text-white`}
