@@ -11,7 +11,10 @@ function App() {
         alt="logo de sitio web"
         className="mx-auto mb-10"
       />
-      <Box />
+      <div className="grid xl:grid-cols-2 gap-5 px-5">
+        <Box />
+        <Box />
+      </div>
     </main>
   );
 }
