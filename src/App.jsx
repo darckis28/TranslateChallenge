@@ -12,7 +12,7 @@ function App() {
         className="mx-auto mb-10"
       />
       <div className="grid xl:grid-cols-2 gap-5 px-5">
-        <Box />
+        <Box translate={true} />
         <Box />
       </div>
     </main>
