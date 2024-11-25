@@ -1,4 +1,5 @@
 import Box from "./components/Box";
+import ContextGlobal from "./context/ContextGlobal";
 
 function App() {
   return (
@@ -11,10 +12,12 @@ function App() {
         alt="logo de sitio web"
         className="mx-auto mb-10"
       />
-      <div className="grid xl:grid-cols-2 gap-5 px-5">
-        <Box translate={true} />
-        <Box />
-      </div>
+      <ContextGlobal>
+        <div className="flex flex-col xl:flex-row xl:justify-center w-full gap-5 px-5">
+          <Box translate={true} />
+          <Box />
+        </div>
+      </ContextGlobal>
     </main>
   );
 }

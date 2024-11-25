@@ -1,30 +1,6 @@
-import { useState } from "react";
 import BtnSelection from "./BtnSelection";
 import ButtonIcons from "../components/ButtonIcons";
 import TopLeftIcon from "../icons/TopLeftIcon";
-const languages = {
-  Spanish: "es",
-  English: "en",
-  French: "fr",
-  German: "de",
-  Italian: "it",
-  Portuguese: "pt",
-  Russian: "ru",
-  Japanese: "ja",
-  Chinese: "zh",
-  Arabic: "ar",
-  Korean: "ko",
-  Hindi: "hi",
-  Turkish: "tr",
-  Dutch: "nl",
-  Swedish: "sv",
-  Polish: "pl",
-  Czech: "cs",
-  Danish: "da",
-  Finnish: "fi",
-  Greek: "el",
-  Dectect: "mt",
-};
 const languageNames = [
   "French",
   "German",
@@ -45,34 +21,31 @@ const languageNames = [
   "Finnish",
   "Greek",
 ];
-const HeaderSelection = ({ translate }) => {
-  const [btnSelect, setBtnSelect] = useState(translate ? "English" : "Spanish");
-
+const HeaderSelection = ({ translate, lenguage, setLenguage }) => {
   function handelClick(value) {
-    setBtnSelect(value);
+    setLenguage(value);
   }
   function handelChange(e) {
     const value = e.target.value;
-    console.log(value);
-    setBtnSelect(value);
+    setLenguage(value);
   }
   return (
     <header className="flex justify-between  pb-4 mb-5 border-b border-b-textSelect/40">
       <div className="gap-3 flex">
         {translate && (
           <BtnSelection
-            btnSelect={btnSelect}
+            btnSelect={lenguage}
             value={"Dectect"}
             onclick={handelClick}
           />
         )}
         <BtnSelection
-          btnSelect={btnSelect}
+          btnSelect={lenguage}
           value={"English"}
           onclick={handelClick}
         />
         <BtnSelection
-          btnSelect={btnSelect}
+          btnSelect={lenguage}
           value={"Spanish"}
           onclick={handelClick}
         />
@@ -80,9 +53,9 @@ const HeaderSelection = ({ translate }) => {
           onChange={handelChange}
           name="language"
           className={`${
-            btnSelect === "Dectect" ||
-            btnSelect === "Spanish" ||
-            btnSelect === "English"
+            lenguage === "Dectect" ||
+            lenguage === "Spanish" ||
+            lenguage === "English"
               ? "bg-transparent text-textSelect"
               : "bg-textSelect text-white"
           } rounded-lg px-2  focus:bg-textSelect focus:text-white`}
