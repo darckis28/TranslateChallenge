@@ -4,8 +4,8 @@ import { languages } from "../data/lenguajes";
 
 export const Context = createContext(null);
 const ContextGlobal = ({ children }) => {
-  const [fristLanguage, setFristLanguage] = useState("English");
-  const [secondLanguage, setSecondLanguage] = useState("Spanish");
+  const [fristLanguage, setFristLanguage] = useState("Spanish");
+  const [secondLanguage, setSecondLanguage] = useState("English");
   const [text, setText] = useState("");
   const [result, setResult] = useState("");
   function translateText() {

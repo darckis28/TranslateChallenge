@@ -13,7 +13,7 @@ function App() {
         className="mx-auto mb-10"
       />
       <ContextGlobal>
-        <div className="flex flex-col xl:flex-row xl:justify-center w-full gap-5 px-5">
+        <div className="grid xl:grid-cols-2 w-full gap-5 px-5">
           <Box translate={true} />
           <Box />
         </div>

@@ -15,15 +15,36 @@ const Box = ({ translate }) => {
     secondLanguage,
     setSecondLanguage,
     translateText,
+    setResult,
   } = useContextGlob();
   const handelOnchange = (e) => {
     if (e.target.value.length <= 500) {
       setText(e.target.value);
     }
   };
+
+  function copyText() {
+    navigator.clipboard.writeText(translate ? text : result);
+  }
+  function speakText() {
+    const speech = new SpeechSynthesisUtterance(); // Crea una instancia para la síntesis de voz
+    speech.text = translate ? text : result; // Define el texto a hablar
+    window.speechSynthesis.speak(speech); // Ejecuta la síntesis de voz
+  }
+  function reverse() {
+    const idiomOne = fristLanguage;
+    const idiomTwo = secondLanguage;
+    const textOne = text;
+    const textTwo = result;
+    setText(textTwo);
+    setResult(textOne);
+    setFristLanguage(idiomTwo);
+    setSecondLanguage(idiomOne);
+  }
   return (
     <div className="bg-bgBox/80 backdrop-blur-md border border-textSelect rounded-3xl py-5 px-4 xl:min-w-[480px] ">
       <HeaderSelection
+        reverse={reverse}
         translate={translate}
         lenguage={translate ? fristLanguage : secondLanguage}
         setLenguage={translate ? setFristLanguage : setSecondLanguage}
@@ -43,10 +64,10 @@ const Box = ({ translate }) => {
       </div>
       <div className="flex justify-between items-end">
         <div className="flex gap-3">
-          <ButtonIcons>
+          <ButtonIcons onclick={speakText}>
             <SoundIcon />
           </ButtonIcons>
-          <ButtonIcons>
+          <ButtonIcons onclick={copyText}>
             <CopyIcon />
           </ButtonIcons>
         </div>

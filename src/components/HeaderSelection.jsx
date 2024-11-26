@@ -21,7 +21,7 @@ const languageNames = [
   "Finnish",
   "Greek",
 ];
-const HeaderSelection = ({ translate, lenguage, setLenguage }) => {
+const HeaderSelection = ({ translate, lenguage, setLenguage, reverse }) => {
   function handelClick(value) {
     setLenguage(value);
   }
@@ -71,7 +71,7 @@ const HeaderSelection = ({ translate, lenguage, setLenguage }) => {
         </select>
       </div>
       {!translate && (
-        <ButtonIcons>
+        <ButtonIcons onclick={reverse}>
           <TopLeftIcon />
         </ButtonIcons>
       )}
